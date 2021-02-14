@@ -51,10 +51,17 @@ def find_credential(cls,account):
         Args:
              to search if it exists
         Returns :
-            Boolean: True or false depending if the contact exists
+            Boolean: True or false depending if credential exists
         '''
         for credential in cls.credential_list:
              if credential.account == account:
                     return True
 
     return False 
+
+    @classmethod
+    def display_credential(cls):
+        '''
+        method that returns the credential list
+        '''
+        return cls.credential_list

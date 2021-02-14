@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from credentials import Credential
 from user import User
 
@@ -81,4 +82,20 @@ class TestCredential(unittest.TestCase):
         credential_exists = Credential.credential_exist("Twitter")
 
         self.assertTrue(credential_exists)
-    
+
+    def test_display_credential(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+
+        self.assertEqual(Credential.display_credential(),Credential.credential_list)
+
+    def test_copy_credential(self):
+        '''
+        Test to confirm that we can copy the credentials to clipboard nad paste it whwrev
+        '''
+
+        self.new_contact.save_contact()
+        Contact.copy_email("0712345678")
+
+        self.assertEqual(self.new_contact.email,pyperclip.paste())
