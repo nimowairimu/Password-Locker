@@ -15,6 +15,15 @@ class TestCredential(unittest.TestCase):
         
          """
 
+
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Credential.credential_list = []
+
+
+
     self.new_credential = Credential("Instagram","wairimu","123")# create a new credential pbject
 
     def test_init(self):
@@ -36,5 +45,15 @@ class TestCredential(unittest.TestCase):
         self.new_credential.save_credential() # saving the new credential
         self.assertEqual(len(Credential.credential_list),1)
 
-if __name__ ==  '__main__':
+    def test_delete_credential(self):
+            '''
+            test_delete_contact to test if we can remove a contact from our contact list
+            '''
+            self.new_credential.save_contact()
+            test_credential = Credential("Test","user","0712345678","test@user.com") # new credential
+            test_credential.save_credential()
+
+            self.new_credential.delete_credential()# Deleting a credential object
+            self.assertEqual(len(Credential.credential_list),1)
+if __name__ == '__main__':
     unittest.main()
