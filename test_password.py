@@ -47,13 +47,24 @@ class TestCredential(unittest.TestCase):
 
     def test_delete_credential(self):
             '''
-            test_delete_contact to test if we can remove a contact from our contact list
+            test_delete_contact to test if we can remove a credential from our  list
             '''
             self.new_credential.save_contact()
-            test_credential = Credential("Test","user","0712345678","test@user.com") # new credential
+            test_credential = Credential("Instagram","wairimu","123") # new credential
             test_credential.save_credential()
 
             self.new_credential.delete_credential()# Deleting a credential object
             self.assertEqual(len(Credential.credential_list),1)
-if __name__ == '__main__':
-    unittest.main()
+
+    def test_credential_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the credential.
+        '''
+
+        self.new_credential.save_credential()
+        test_credential = Contact("Test","user","0711223344","test@user.com") # new contact
+        test_contact.save_contact()
+
+        contact_exists = Contact.contact_exist("0711223344")
+
+        self.assertTrue(contact_exists)
