@@ -1,3 +1,5 @@
+import pyperclip
+
 class Credential:
     """
     Class thst saves user credentails 
@@ -65,3 +67,8 @@ def find_credential(cls,account):
         method that returns the credential list
         '''
         return cls.credential_list
+
+    @classmethod
+    def copy_credential(cls,account):
+        credential_found = Contact.find_credential(account)
+        pyperclip.copy(credential_found.password)

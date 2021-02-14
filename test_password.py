@@ -92,10 +92,10 @@ class TestCredential(unittest.TestCase):
 
     def test_copy_credential(self):
         '''
-        Test to confirm that we can copy the credentials to clipboard nad paste it whwrev
+        Test to confirm that we can copy the credentials to clipboard nad paste it elsewhere
         '''
 
-        self.new_contact.save_contact()
-        Contact.copy_email("0712345678")
+        self.new_credential.save_credential()
+        Credential.copy_credential("Twitter")
 
-        self.assertEqual(self.new_contact.email,pyperclip.paste())
+        self.assertEqual(self.new_credential.password,pyperclip.paste())
