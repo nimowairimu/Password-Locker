@@ -99,3 +99,6 @@ class TestCredential(unittest.TestCase):
         Credential.copy_credential("Twitter")
 
         self.assertEqual(self.new_credential.password,pyperclip.paste())
+
+if __name__ == "__main__":
+    unittest.main()
