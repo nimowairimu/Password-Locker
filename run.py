@@ -24,6 +24,23 @@ def find_credential(account):
     '''
     Function that finds a credential by its account  and returns the credential
     '''
-    return Contact.find_by_number(number)
+    return Credential.find_credential(account)
 
+def check_existing_credentials (account):
+    '''
+    Function that check if a credential exists with that specific account and return a Boolean
+    '''
+    return Credential.credential_exist(account)
+
+def display_credential():
+    '''
+    Function that returns all the saved credentials 
+    '''
+    return Credential.display_credential()
+
+def copy_credential(account):
+    """
+    A funct that copies the password using the pyperclip framework
+    """
+    return Credential.copy_credential(account)
 
