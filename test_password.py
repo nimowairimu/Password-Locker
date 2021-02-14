@@ -62,9 +62,10 @@ class TestCredential(unittest.TestCase):
         '''
 
         self.new_credential.save_credential()
-        test_credential = Contact("Test","user","0711223344","test@user.com") # new contact
-        test_contact.save_contact()
+        test_credential = Credential("Yahoo","wangechimungai","kadesho") # new credential
+        test_credential.save_credential()
 
-        contact_exists = Contact.contact_exist("0711223344")
+        contact_exists = Contact.contact_exist("Yahoo")
 
         self.assertTrue(contact_exists)
+    
