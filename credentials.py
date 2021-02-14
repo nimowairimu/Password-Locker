@@ -29,22 +29,23 @@ def delete_credential(self):
     Credential.credential_list.remove(self)
 
 @classmethod
-def find_by_account(cls,number):
+def find_credential(cls,account):
     '''
      Method that takes in an account and returns the credentials  that matches that account.
 
      Args:
-    Takes the account to search for 
+        Takes the account to search for 
     Returns :
-         The credentials that match that account
+        The credentials that match that account
         '''
 
-        for credential in cls.credential_list:
-            if credential.account == account:
-                return credential
+    for credential in cls.credential_list:
+        if credential.account == account:
+            return credential
 
     @classmethod
-    def contact_exist(cls,number):
+    def credential_exist(cls,account):
+
         '''
         Method that checks if a credential exists from the list.
         Args:
@@ -52,8 +53,8 @@ def find_by_account(cls,number):
         Returns :
             Boolean: True or false depending if the contact exists
         '''
-        for contact in cls.contact_list:
-            if contact.phone_number == number:
+        for credential in cls.credential_list:
+             if credential.account == account:
                     return True
 
-        return False
+    return False 
