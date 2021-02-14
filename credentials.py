@@ -75,7 +75,7 @@ def copy_credential(cls,account):
     credential_found = Contact.find_credential(account)
     pyperclip.copy(credential_found.password)
     
-def generatePassword(stringLength=7):
+def password_generate(stringLength=7):
         """
         Generate a random password using lowercase and uppercase letters  and numbers 
         """
