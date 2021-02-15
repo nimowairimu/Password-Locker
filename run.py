@@ -98,9 +98,7 @@ def password_generate():
     return random_password
 
 def main():
-    # log in or register a user
-
-    enter()
+    enter() # log in or register a user
 print(f"Hello {user_name}. what would you like to do? \n Use these short codes : ac - create a new credential, dc - delete credential, fc -find a credential, ex -check existing credential")
 action = input().lower
 if action == 'ac':
@@ -110,20 +108,50 @@ if action == 'ac':
         print = ("EP to enter your own password or GP to generate one: ")
         password-option = input().lower
         if password-option == 'ep':
-            password = input("Enter the password: ")
-            break
+            password = input("Enter the password:  ")
+            save_credential()
+
         elif password-option == 'gp':
             password = password_generate()
-            break
+            save_credential()
         else:
             print("Invalid, please try again")
 
-elif action == dc:
+elif action == 'dc':
     print = ("Are you sure you want to delete saved credentials? y/n  "))
     choice  = input().lower
     if choice == 'y':
-        print = What s the account of the credential you wish to delete?
-    
+        print = ("What s the account of the credential you wish to delete?")
+        account = input ().lower 
+        find_account = find_credential(account)
+        delete = find_account.delete_credential()
+        print = ("Credential successfully deleted")
+    else:
+        enter()
+elif action == 'fc':
+    account  = input("What is the account of the credentials you wish to retrieve  ")
+    credential = find_credential(account)
+    print = ("Your credentials are {{account}} username : {{username}} password: {{password}}")
+    while True:
+        print = ("Would you like to copy your credentials to clipboard ?y/n")
+        copy = input().lower
+        if copy == 'y':
+            credential.copy_credential()
+        else:
+            print("Go back to main menu to choose an option")
+else action == 'ex':
+    print = ("Check whether your account credentials exist")
+    account = input ("Enter the account you wish to check   ")
+    credential_exist(account)
+    while True:
+        print = ("Your account exists on account : {{account}} username :{{username}} and password :{{password}}")
+    else :
+        print = ("That account detail does not exist")
+        print = ("Add as a new credential")
+        save_credential()
+
+
+
    
 
 
