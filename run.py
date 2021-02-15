@@ -100,9 +100,34 @@ def password_generate():
 def main():
     # log in or register a user
 
-enter()
-print(f"Hello {user_name}. what would you like to do? \n Use these short codes : sc - create a new credential, dc - delete credential, fc -find a co, ex -exit the contact list ")
-print("
+    enter()
+print(f"Hello {user_name}. what would you like to do? \n Use these short codes : ac - create a new credential, dc - delete credential, fc -find a credential, ex -check existing credential")
+action = input().lower
+if action == 'ac':
+    print= ("What account is the credential for:   ")
+    account = input().lower 
+    while True:
+        print = ("EP to enter your own password or GP to generate one: ")
+        password-option = input().lower
+        if password-option == 'ep':
+            password = input("Enter the password: ")
+            break
+        elif password-option == 'gp':
+            password = password_generate()
+            break
+        else:
+            print("Invalid, please try again")
+
+elif action == dc:
+    print = ("Are you sure you want to delete saved credentials? y/n  "))
+    choice  = input().lower
+    if choice == 'y':
+        print = What s the account of the credential you wish to delete?
+    
+   
+
+
+
 
 
    
