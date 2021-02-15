@@ -106,19 +106,19 @@ if action == 'ac':
     account = input().lower 
     while True:
         print = ("EP to enter your own password or GP to generate one: ")
-        password-option = input().lower
-        if password-option == 'ep':
+        password_option = input().lower
+        if password_option == 'ep':
             password = input("Enter the password:  ")
             save_credential()
 
-        elif password-option == 'gp':
+        elif password_option == 'gp':
             password = password_generate()
             save_credential()
         else:
             print("Invalid, please try again")
 
 elif action == 'dc':
-    print = ("Are you sure you want to delete saved credentials? y/n  "))
+    print = ("Are you sure you want to delete saved credentials? y/n  ")
     choice  = input().lower
     if choice == 'y':
         print = ("What s the account of the credential you wish to delete?")
@@ -139,7 +139,7 @@ elif action == 'fc':
             credential.copy_credential()
         else:
             print("Go back to main menu to choose an option")
-else action == 'ex':
+elif action == 'ex':
     print = ("Check whether your account credentials exist")
     account = input ("Enter the account you wish to check   ")
     credential_exist(account)
@@ -149,6 +149,13 @@ else action == 'ex':
         print = ("That account detail does not exist")
         print = ("Add as a new credential")
         save_credential()
+else:
+    ("Please enter a valid option to continue ")
+
+if __name__ == '__main__':
+
+    main()
+
 
 
 
